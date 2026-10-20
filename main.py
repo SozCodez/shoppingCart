@@ -83,32 +83,62 @@ while start:
         print("\n\n\n\n\n")
         print("~~~~~ YOUR SHOPPING CART ~~~~~")
         print()
-        for i in range(len(cart)):
-            print(cartIdx[i], cart[i])
-        print()
-        removeProd = (input("Enter # of product you \nwould like to remove: "))
-        removeProdInt = int(removeProd)
-        validRemove = False
-        while choice3:
+        if len(cart) != 0:
             for i in range(len(cart)):
-                print(i)
-                    # 2                   2            [1, 2]
-                if removeProdInt == cartIdx[i]:
-                    print("SKJHKJDSHKJDHKSJ")
-                    validRemove = True
-                    print("TEST:",removeProdInt)
-                    print("Cart", cart)
-                    cart.pop(removeProdInt - 1)
+                print(cartIdx[i], cart[i])
+            print()
+            removeProd = (input("Enter # of product you \nwould like to remove: "))
+            removeProdInt = int(removeProd) #set to false instead of using else statement below
+            validRemove = False
+            while choice3:
+                for i in range(len(cart)):
+                    #print(i)
+                        # 2                   2            [1, 2]
+                    if removeProdInt == cartIdx[i]:
+                        validRemove = True
+                        cart.pop(removeProdInt - 1)
+                        print("Removing item ", removeProd, "...")
+                        time.sleep(1.5)
 
+                if validRemove == False:
+                    print()
+                    print("Please enter valid product number")
+                    removeProd = (input("Enter # of product to remove: "))
+                    print(cartIdx)
+                break
+        elif len(cart) == 0:
+            print("is empty!")
+            print("You cannot remove what isn't there.")
+            print("returning in 3 seconds...")
+            time.sleep(3)
 
-            if validRemove == False:
-                print()
-                print("Please enter valid product number")
-                removeProd = (input("Enter # of product to remove: "))
-                print(cartIdx)
+    elif choice == "4": #viewing shopping cart
+        choice4 = True
+        while choice4:
+            print("\n\n\n\n\n")
+            print("~~~~~ YOUR SHOPPING CART ~~~~~")
+            print()
+            totalitemsinCart = 0
+            for i in range(len(cart)):
+                totalitemsinCart += 1
+                if cart[i] == ". Chips":
+                    tempPrice = "$2.00"
+                elif cart[i] == ". Soda":
+                    tempPrice = "$2.50"
+                elif cart[i] == ". Candy":
+                    tempPrice = "$1.50"
+                elif cart[i] == ". Cookies":
+                    tempPrice = "$3.00"
+                elif cart[i] == ". Water":
+                    tempPrice = "$1.00"
+                elif cart[i] == ". Sandwich":
+                    tempPrice = "$5.00"
 
-            break
-
+                print(cartIdx[i], cart[i], tempPrice)
+            print("Items:", totalitemsinCart)
+            choice4Ret = input("Type 'close' to return: ")
+            if choice4Ret != "close":
+                choice4Ret = input("Please Type 'close' To Return: ")
+            else:
+                break
         
-        
-
