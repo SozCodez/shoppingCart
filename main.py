@@ -141,4 +141,32 @@ while start:
                 choice4Ret = input("Please Type 'close' To Return: ")
             else:
                 break
+    elif choice == "5":
+        choice5 = True
+        while choice5:
+            print("\n\n\n\n\n")
+            print("~~~~~ YOUR SHOPPING CART ~~~~~")
+            print()
+            subtotal = 0
+            for i in range(len(cart)):
+                if cart[i] == ". Chips":
+                    subtotal += 2
+                elif cart[i] == ". Soda":
+                    subtotal += 2.5
+                elif cart[i] == ". Candy":
+                    subtotal += 1.5
+                elif cart[i] == ". Cookies":
+                    subtotal += 3
+                elif cart[i] == ". Water":
+                    subtotal += 1
+                elif cart[i] == ". Sandwich":
+                    subtotal += 5
+                print(cartIdx[i], cart[i])
+            print()
+            print(f"Subtotal: ${subtotal:,.2f}")
+            choice5Ret = input("Type 'close' to return: ")
+            if choice5Ret != "close":
+                choice5Ret = input("Please Type 'close' To Return: ")
+            else:
+                break
         
